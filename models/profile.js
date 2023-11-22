@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
         month: "2-digit",
         year: "numeric"
       };
-      const date = this.bornDate.toLocaleString('id-ID', options).replace(/\//g, '-')
+      const date = this.dob.toLocaleString('id-ID', options).replace(/\//g, '-')
     return date.split('-').reverse().join('-')
     }
 
