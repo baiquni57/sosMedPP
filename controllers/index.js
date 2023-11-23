@@ -1,6 +1,7 @@
 const Helper = require('../helper');
 const {Post, Tag, User, PostTag, Profile} = require('../models')
 const { Op } = require("sequelize");
+const { sequelize } = require("sequelize")
 
 class Controller{
     static async post(req, res) {
@@ -144,11 +145,17 @@ class Controller{
     static async deletePost(req, res) {
         try {
             const {postId} = req.params
+            await PostTag.destroy({
+                where: {
+                    id: postId
+                }
+            })
             await Post.destroy({
                 where: {
                     id: postId
                 }
             })
+            res.redirect("/profile/:username");
         } catch (error) {
             res.send(error.message)
         }
