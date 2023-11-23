@@ -4,7 +4,8 @@
     "password": "postgres",
     "database": "sosMedPP",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "port": "5431"
   },
   "test": {
     "username": "root",
