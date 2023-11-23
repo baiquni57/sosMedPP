@@ -20,7 +20,7 @@ class Controller{
             let img = ''
             if(req.file !== undefined) {
                 const image = req.file.path
-                let imgs = image.split('\\')
+                let imgs = image.split('/')
                 img = imgs[1]
             }
             let idPost = await Post.create({title, description, imgUrl: img, UserId: id});
@@ -111,7 +111,7 @@ class Controller{
             let img = ''
             if(req.file !== undefined) {
                 const image = req.file.path
-                let imgs = image.split('\\')
+                let imgs = image.split('/')
                 img = imgs[1]
             }
             // console.log(img)
@@ -175,7 +175,7 @@ class Controller{
             let img = ''
             if(req.file !== undefined) {
                 const image = req.file.path
-                let imgs = image.split('\\')
+                let imgs = image.split('/')
                 img = imgs[1]
                 await Profile.update({firstName, lastName, dob, address, imgProfile: img}, {where: {id: +profileId}});
             }
